@@ -10,18 +10,28 @@ class IstikharaViewController < UIViewController
 
     self.view.backgroundColor = UIColor.whiteColor
 
-    alert = UIAlertView.new
-    message = @contents[rand(6200)]
-    alert.message = message
-    alert.addButtonWithTitle("OK")
-    alert.show
+    message = randomAyah
 
-    @label = UILabel.alloc.initWithFrame(CGRectZero)
-    @label.text = message
-    @label.sizeToFit
-    @label.center = CGPointMake(self.view.frame.size.width / 2, self.view.frame.size.height / 2)
-    self.view.addSubview @label
+    @textView = UITextView.alloc.initWithFrame(CGRectMake(5,40,310,640))
+    @textView.text = message
+    @textView.font = UIFont.systemFontOfSize(20)
+    @textView.textColor = UIColor.blackColor
 
+    @button = UIButton.buttonWithType(UIButtonTypeRoundedRect)
+    @button.setTitle('Next', forState:UIControlStateNormal)
+    @button.addTarget(self, action:'nextTapped', forControlEvents:UIControlEventTouchUpInside)
+    @button.frame = [[50, 400], [view.frame.size.width - 50 * 2, 40]]
+
+    self.view.addSubview @textView
+    self.view.addSubview @button
+  end
+
+  def nextTapped
+    @textView.text = randomAyah
+  end
+
+  def randomAyah
+    @contents[rand(6200)]
   end
 
 end
