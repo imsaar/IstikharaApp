@@ -16,6 +16,7 @@ class IstikharaViewController < UIViewController
     @textView.text = message
     @textView.font = UIFont.systemFontOfSize(20)
     @textView.textColor = UIColor.blackColor
+    @textView.editable = false
 
     @button = UIButton.buttonWithType(UIButtonTypeRoundedRect)
     @button.setTitle('Next', forState:UIControlStateNormal)
