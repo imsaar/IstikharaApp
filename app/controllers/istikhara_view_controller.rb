@@ -33,7 +33,7 @@ class IstikharaViewController < UIViewController
   end
 
   def randomAyah
-    @contents[rand(6200)]
+    @contents[rand(6235)]
   end
 
 end
