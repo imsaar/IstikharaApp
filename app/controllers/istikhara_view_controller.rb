@@ -12,12 +12,15 @@ class IstikharaViewController < UIViewController
 
     message = randomAyah
 
-    @textView = UITextView.alloc.initWithFrame(CGRectMake(5,40,310,640))
+    @textView = UITextView.alloc.initWithFrame(CGRectMake(50,80,220,240))
     @textView.text = message
     @textView.font = UIFont.systemFontOfSize(20)
     @textView.textColor = UIColor.blackColor
     @textView.editable = false
+    @textView.scrollEnabled = true
     @textView.textAlignment = UITextAlignmentRight
+    @textView.layer.borderColor = UIColor.grayColor.CGColor
+    @textView.layer.borderWidth = 3.0
 
     @button = UIButton.buttonWithType(UIButtonTypeRoundedRect)
     @button.setTitle('Next', forState:UIControlStateNormal)
