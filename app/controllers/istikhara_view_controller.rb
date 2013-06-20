@@ -14,20 +14,21 @@ class IstikharaViewController < UIViewController
 
     @textView = textView(message)
 
-    button_y = 400
+    button_y = 410
     button_height = 40
+    distance_between_buttons = 30
 
-    button_x = 50
+    button_x = 30
     button_width = 50
     frame = [[button_x, button_y], [button_width, button_height]]
     @prevButton = button('<<', 'previousAyat', frame)
 
-    button_x = 108
+    button_x = button_x + button_width + distance_between_buttons
     button_width = 100
     frame = [[button_x, button_y], [button_width, button_height]]
     @istikharaButton = button('Istikhara', 'nextTapped', frame)
 
-    button_x = 216
+    button_x = button_x + button_width + distance_between_buttons
     button_width = 50
     frame = [[button_x, button_y], [button_width, button_height]]
     @nextButton = button('>>', 'nextAyat', frame)
@@ -69,10 +70,10 @@ class IstikharaViewController < UIViewController
   end
 
   def textView(message)
-    x = 50
-    y = 80
-    width = 220
-    height = 300
+    x = 30
+    y = 70
+    width = 260
+    height = 320
 
     textView = UITextView.alloc.initWithFrame(CGRectMake(x,y,width,height))
     textView.text = message
