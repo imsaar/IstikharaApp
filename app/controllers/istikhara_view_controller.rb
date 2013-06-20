@@ -8,7 +8,8 @@ class IstikharaViewController < UIViewController
   def viewDidLoad
     super
 
-    self.view.backgroundColor = UIColor.whiteColor
+    self.view.backgroundColor = UIColor.colorWithRed(1.0, green:1.0, blue:0.745, alpha:1.0)
+    self.view.backgroundColor = UIColor.colorWithPatternImage(UIImage.imageNamed("background"))
 
     message = randomAyah
 
@@ -82,8 +83,9 @@ class IstikharaViewController < UIViewController
     textView.editable = false
     textView.scrollEnabled = true
     textView.textAlignment = UITextAlignmentRight
-    textView.layer.borderColor = UIColor.grayColor.CGColor
-    textView.layer.borderWidth = 3.0    
+    textView.layer.backgroundColor = UIColor.clearColor.CGColor
+    textView.layer.borderColor = UIColor.lightGrayColor.CGColor
+    textView.layer.borderWidth = 1.0    
     textView
   end
 
