@@ -17,7 +17,7 @@ class IstikharaViewController < UIViewController
 
     button_y = 410
     button_height = 40
-    distance_between_buttons = 30
+    distance_between_buttons = 25
 
     button_x = 30
     button_width = 50
@@ -25,9 +25,9 @@ class IstikharaViewController < UIViewController
     @prevButton = button('<<', 'previousAyat', frame)
 
     button_x = button_x + button_width + distance_between_buttons
-    button_width = 100
+    button_width = 110
     frame = [[button_x, button_y], [button_width, button_height]]
-    @istikharaButton = button('Istikhara', 'nextTapped', frame)
+    @istikharaButton = button('New Istikhara', 'nextTapped', frame)
 
     button_x = button_x + button_width + distance_between_buttons
     button_width = 50
