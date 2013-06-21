@@ -1,13 +1,32 @@
 class IstikharaViewController < UIViewController
   def loadView
-    self.view = UIView.alloc.init
-    filePath = NSBundle.mainBundle.pathForResource("quran-uthmani", ofType:"txt")
-    @contents = File.open(filePath) { |file| file.readlines }
+    self.view = UIImageView.alloc.initWithImage(UIImage.imageNamed("background"))
   end
 
   def viewDidLoad
     super
+    @label = makeStartLabel
+    view.addSubview(@label)
+    view.userInteractionEnabled = true
+    recognizer = UITapGestureRecognizer.alloc.initWithTarget(self, action:'loadIstikhara')
+    view.addGestureRecognizer(recognizer)
+  end
 
+  def makeStartLabel
+    label = UILabel.alloc.initWithFrame([[10, 200], [300, 80]])
+    label.backgroundColor = UIColor.clearColor
+    label.text = "Tap For Istikhara"
+    label.font = UIFont.boldSystemFontOfSize(30)
+    label.textColor = UIColor.redColor
+    label.textAlignment = UITextAlignmentCenter
+    label
+  end
+
+  def loadIstikhara
+    filePath = NSBundle.mainBundle.pathForResource("quran-uthmani", ofType:"txt")
+    @contents = File.open(filePath) { |file| file.readlines }
+
+    self.view = UIView.new
     self.view.backgroundColor = UIColor.colorWithRed(1.0, green:1.0, blue:0.745, alpha:1.0)
     self.view.backgroundColor = UIColor.colorWithPatternImage(UIImage.imageNamed("background"))
 
