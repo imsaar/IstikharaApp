@@ -3,6 +3,14 @@ class IstikharaViewController < UIViewController
     self.view = UIImageView.alloc.initWithImage(UIImage.imageNamed("background"))
   end
 
+  def shouldAutorotateToInterfaceOrientation(orientation)
+    orientation == UIInterfaceOrientationPortrait
+  end
+
+  def supportedInterfaceOrientations
+    UIInterfaceOrientationMaskPortrait
+  end
+
   def viewDidLoad
     super
     @label = makeStartLabel
