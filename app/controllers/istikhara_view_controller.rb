@@ -15,9 +15,9 @@ class IstikharaViewController < UIViewController
   def makeStartLabel
     label = UILabel.alloc.initWithFrame([[10, 200], [300, 80]])
     label.backgroundColor = UIColor.clearColor
-    label.text = "Tap For Istikhara"
-    label.font = UIFont.boldSystemFontOfSize(30)
-    label.textColor = UIColor.redColor
+    label.text = "اَسْتَخِيرُٱللّهَ بِرَحْمَتِهِ خِيَرَةً فِي عَافِيَةٍ"
+    label.font = UIFont.boldSystemFontOfSize(20)
+    label.textColor = UIColor.blackColor
     label.textAlignment = UITextAlignmentCenter
     label
   end
