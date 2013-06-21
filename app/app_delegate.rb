@@ -6,4 +6,12 @@ class AppDelegate
     @window.makeKeyAndVisible
     true
   end
+
+  def applicationDidEnterBackground(options)
+    @window.rootViewController = nil
+  end
+
+  def applicationWillEnterForeground(options)
+    @window.rootViewController = IstikharaViewController.alloc.init
+  end
 end
