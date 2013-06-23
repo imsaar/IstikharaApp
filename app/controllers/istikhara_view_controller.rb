@@ -21,10 +21,11 @@ class IstikharaViewController < UIViewController
   end
 
   def makeStartLabel
-    label = UILabel.alloc.initWithFrame([[10, 200], [300, 80]])
+    label = UILabel.alloc.initWithFrame([[10, 200], [300, 120]])
     label.backgroundColor = UIColor.clearColor
+    label.numberOfLines = 2
     label.text = "اَسْتَخِيرُٱللّهَ بِرَحْمَتِهِ خِيَرَةً فِي عَافِيَةٍ"
-    label.font = UIFont.boldSystemFontOfSize(20)
+    label.font = UIFont.fontWithName(fontName, size:30)
     label.textColor = UIColor.blackColor
     label.textAlignment = UITextAlignmentCenter
     label
@@ -105,7 +106,7 @@ class IstikharaViewController < UIViewController
 
     textView = UITextView.alloc.initWithFrame(CGRectMake(x,y,width,height))
     textView.text = message
-    textView.font = UIFont.systemFontOfSize(30)
+    textView.font = UIFont.fontWithName(fontName, size:30)
     textView.textColor = UIColor.blackColor
     textView.editable = false
     textView.scrollEnabled = true
@@ -114,6 +115,11 @@ class IstikharaViewController < UIViewController
     textView.layer.borderColor = UIColor.lightGrayColor.CGColor
     textView.layer.borderWidth = 1.0    
     textView
+  end
+
+  def fontName
+    fonts = ["Lateef", "KFGQPC Uthman Taha Naskh", "Scheherazade"]
+    fonts[0]
   end
 
   def randomAyah
