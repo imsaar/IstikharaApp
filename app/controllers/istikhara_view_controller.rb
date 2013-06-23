@@ -73,12 +73,12 @@ class IstikharaViewController < UIViewController
 
   def previousAyat
     @ayatNumber -= 1
-    @textView.text = @contents[@ayatNumber]
+    @textView.text = Ayat.new(@contents[@ayatNumber]).to_s
   end
 
   def nextAyat
     @ayatNumber += 1
-    @textView.text = @contents[@ayatNumber]
+    @textView.text = Ayat.new(@contents[@ayatNumber]).to_s
   end
 
   def button(title, action, frame)
@@ -118,7 +118,7 @@ class IstikharaViewController < UIViewController
 
   def randomAyah
     @ayatNumber = rand(6235)
-    @contents[@ayatNumber]
+    Ayat.new(@contents[@ayatNumber]).to_s
   end
 
 end
