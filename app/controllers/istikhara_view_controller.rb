@@ -50,7 +50,7 @@ class IstikharaViewController < UIViewController
     button_x = 30
     button_width = 50
     frame = [[button_x, button_y], [button_width, button_height]]
-    @prevButton = button('<<', 'previousAyat', frame)
+    @prevButton = button('<<', 'nextAyat', frame)
 
     button_x = button_x + button_width + distance_between_buttons
     button_width = 110
@@ -60,7 +60,7 @@ class IstikharaViewController < UIViewController
     button_x = button_x + button_width + distance_between_buttons
     button_width = 50
     frame = [[button_x, button_y], [button_width, button_height]]
-    @nextButton = button('>>', 'nextAyat', frame)
+    @nextButton = button('>>', 'previousAyat', frame)
 
     self.view.addSubview @textView
     self.view.addSubview @istikharaButton
