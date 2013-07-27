@@ -101,7 +101,7 @@ class IstikharaViewController < UIViewController
     x = 30
     y = 70
     width = 260
-    height = 320
+    height = UIScreen.mainScreen.bounds.size.height - 160
 
     textView = UITextView.alloc.initWithFrame(CGRectMake(x,y,width,height))
     textView.text = message
@@ -111,6 +111,7 @@ class IstikharaViewController < UIViewController
     textView.scrollEnabled = true
     textView.textAlignment = UITextAlignmentRight
     textView.layer.backgroundColor = UIColor.clearColor.CGColor
+    #textView.layer.borderWidth = 1.0
     textView
   end
 
