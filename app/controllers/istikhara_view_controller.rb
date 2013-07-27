@@ -111,8 +111,6 @@ class IstikharaViewController < UIViewController
     textView.scrollEnabled = true
     textView.textAlignment = UITextAlignmentRight
     textView.layer.backgroundColor = UIColor.clearColor.CGColor
-    textView.layer.borderColor = UIColor.lightGrayColor.CGColor
-    textView.layer.borderWidth = 1.0    
     textView
   end
 
