@@ -13,19 +13,29 @@ class IstikharaViewController < UIViewController
 
   def viewDidLoad
     super
-    @label = makeStartLabel
-    view.addSubview(@label)
+    view.addSubview(duaLabel)
+    view.addSubview(instructionLabel)
     view.userInteractionEnabled = true
     recognizer = UITapGestureRecognizer.alloc.initWithTarget(self, action:'loadIstikhara')
     view.addGestureRecognizer(recognizer)
   end
 
-  def makeStartLabel
+  def duaLabel
     label = UILabel.alloc.initWithFrame([[10, 200], [300, 120]])
     label.backgroundColor = UIColor.clearColor
     label.numberOfLines = 2
     label.text = "اَسْتَخِيرُٱللّهَ بِرَحْمَتِهِ خِيَرَةً فِي عَافِيَةٍ"
     label.font = UIFont.fontWithName(fontName, size:30)
+    label.textColor = UIColor.blackColor
+    label.textAlignment = UITextAlignmentCenter
+    label
+  end
+
+  def instructionLabel
+    label = UILabel.alloc.initWithFrame([[10, 400], [300, 40]])
+    label.backgroundColor = UIColor.clearColor
+    label.text = "Tap when ready for Istikhara"
+    label.font = UIFont.fontWithName("Helvetica", size:20)
     label.textColor = UIColor.blackColor
     label.textAlignment = UITextAlignmentCenter
     label
@@ -125,7 +135,7 @@ class IstikharaViewController < UIViewController
   def randomAyah
     @ayatNumber = rand(6235)
     ayatText = Ayat.new(@contents[@ayatNumber]).to_s
-    translationText = @translation[@ayatNumber].chomp
+    translationText = @translation[@ayatNumber].gsub(".", "").chomp
     "#{ayatText}\n#{translationText}"
   end
 
