@@ -42,7 +42,7 @@ class IstikharaViewController < UIViewController
 
     @textView = textView(message)
 
-    button_y = 410
+    button_y = UIScreen.mainScreen.bounds.size.height - 70
     button_height = 40
     distance_between_buttons = 25
 
