@@ -36,7 +36,6 @@ class IstikharaViewController < UIViewController
     @contents = File.open(filePath) { |file| file.readlines }
 
     self.view = UIView.new
-    self.view.backgroundColor = UIColor.colorWithRed(1.0, green:1.0, blue:0.745, alpha:1.0)
     self.view.backgroundColor = UIColor.colorWithPatternImage(UIImage.imageNamed("background"))
 
     message = randomAyah
