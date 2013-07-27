@@ -33,7 +33,9 @@ class IstikharaViewController < UIViewController
 
   def loadIstikhara
     filePath = NSBundle.mainBundle.pathForResource("quran-uthmani", ofType:"txt")
+    translationPath = NSBundle.mainBundle.pathForResource("en.qarai", ofType:"txt")
     @contents = File.open(filePath) { |file| file.readlines }
+    @translation = File.open(translationPath) { |file| file.readlines }
 
     self.view = UIView.new
     self.view.backgroundColor = UIColor.colorWithPatternImage(UIImage.imageNamed("background"))
@@ -122,7 +124,9 @@ class IstikharaViewController < UIViewController
 
   def randomAyah
     @ayatNumber = rand(6235)
-    Ayat.new(@contents[@ayatNumber]).to_s
+    ayatText = Ayat.new(@contents[@ayatNumber]).to_s
+    translationText = @translation[@ayatNumber].chomp
+    "#{ayatText}\n#{translationText}"
   end
 
 end
