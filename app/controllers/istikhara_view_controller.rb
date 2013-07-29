@@ -50,6 +50,11 @@ class IstikharaViewController < UIViewController
     self.view = UIView.new
     self.view.backgroundColor = UIColor.colorWithPatternImage(UIImage.imageNamed("background"))
 
+    headerImage = UIImage.imageNamed("header-transparent.png")
+    headerImageView = UIImageView.alloc.initWithFrame([[42, 25], [240, 40]])
+    headerImageView.image = headerImage
+    self.view.addSubview(headerImageView)
+
     message = randomAyah
 
     @textView = textView(message)
@@ -62,16 +67,22 @@ class IstikharaViewController < UIViewController
     button_width = 50
     frame = [[button_x, button_y], [button_width, button_height]]
     @prevButton = button('<<', 'nextAyat', frame)
+    prevImage = UIImage.imageNamed("arrow-back.png")
+    @prevButton.setImage(prevImage, forState:UIControlStateNormal)
 
     button_x = button_x + button_width + distance_between_buttons
     button_width = 110
     frame = [[button_x, button_y], [button_width, button_height]]
     @istikharaButton = button('New Istikhara', 'nextTapped', frame)
+    istikharaImage = UIImage.imageNamed("istikhara-button.png")
+    @istikharaButton.setImage(istikharaImage, forState:UIControlStateNormal)
 
     button_x = button_x + button_width + distance_between_buttons
     button_width = 50
     frame = [[button_x, button_y], [button_width, button_height]]
     @nextButton = button('>>', 'previousAyat', frame)
+    nextImage = UIImage.imageNamed("arrow-next.png")
+    @nextButton.setImage(nextImage, forState:UIControlStateNormal)
 
     self.view.addSubview @textView
     self.view.addSubview @istikharaButton
@@ -110,9 +121,9 @@ class IstikharaViewController < UIViewController
   end
 
   def textView(message)
-    x = 30
+    x = 25
     y = 70
-    width = 260
+    width = 270
     height = UIScreen.mainScreen.bounds.size.height - 160
 
     textView = UITextView.alloc.initWithFrame(CGRectMake(x,y,width,height))

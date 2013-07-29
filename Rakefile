@@ -6,7 +6,7 @@ require 'motion/project/template/ios'
 Motion::Project::App.setup do |app|
   # Use `rake config' to see complete project settings.
   app.frameworks += %w(QuartzCore)
-  app.name = 'Istikhara'
+  app.name = 'zIstikhara'
   app.icons << 'icon.png'
   app.identifier = 'com.saaridev.istikhara'
   app.deployment_target = "5.0"
