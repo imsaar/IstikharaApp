@@ -8,6 +8,7 @@ Motion::Project::App.setup do |app|
   app.frameworks += %w(QuartzCore)
   app.name = 'zIstikhara'
   app.icons << 'icon.png'
+  app.prerendered_icon = true
   app.identifier = 'com.saaridev.istikhara'
   app.deployment_target = "5.0"
   app.fonts = ["UthmanTN1_Ver07.otf", 
