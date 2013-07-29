@@ -50,9 +50,6 @@ class IstikharaViewController < UIViewController
     self.view = UIView.new
     self.view.backgroundColor = UIColor.colorWithPatternImage(UIImage.imageNamed("background"))
 
-    recognizer = UITapGestureRecognizer.alloc.initWithTarget(self, action:'toggleTranslation')
-    view.addGestureRecognizer(recognizer)
-
     headerImage = UIImage.imageNamed("header-transparent.png")
     headerImageView = UIImageView.alloc.initWithFrame([[42, 25], [240, 40]])
     headerImageView.image = headerImage
@@ -61,6 +58,9 @@ class IstikharaViewController < UIViewController
     message = randomAyah
 
     @textView = textView(message)
+
+    recognizer = UITapGestureRecognizer.alloc.initWithTarget(self, action:'toggleTranslation')
+    @textView.addGestureRecognizer(recognizer)
 
     button_y = UIScreen.mainScreen.bounds.size.height - 70
     button_height = 40
@@ -94,17 +94,18 @@ class IstikharaViewController < UIViewController
   end
 
   def nextTapped
-    @textView.text = randomAyah
+    randomAyah
+    displayAyat
   end
 
   def previousAyat
     @ayatNumber -= 1
-    @textView.text = ayatText
+    displayAyat
   end
 
   def nextAyat
     @ayatNumber += 1
-    @textView.text = ayatText
+    displayAyat
   end
 
   def button(title, action, frame)
