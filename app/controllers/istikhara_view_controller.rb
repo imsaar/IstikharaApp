@@ -35,7 +35,7 @@ class IstikharaViewController < UIViewController
     label = UILabel.alloc.initWithFrame([[10, 400], [300, 40]])
     label.backgroundColor = UIColor.clearColor
     label.text = "Tap when ready for Istikhara"
-    label.font = UIFont.fontWithName("Helvetica", size:20)
+    label.font = UIFont.fontWithName(englishFontName, size:20)
     label.textColor = UIColor.blackColor
     label.textAlignment = UITextAlignmentCenter
     label
@@ -163,8 +163,12 @@ class IstikharaViewController < UIViewController
   def displayTranslation
     @textView.text = translationText
     @textView.textAlignment = UITextAlignmentLeft
-    @textView.font = UIFont.fontWithName("Helvetica", size:20)
+    @textView.font = UIFont.fontWithName(englishFontName, size:20)
     @translationDisplayed = true
+  end
+
+  def englishFontName
+    "HelveticaNeue-CondensedBold"
   end
 
   def displayAyat
