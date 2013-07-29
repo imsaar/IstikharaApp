@@ -50,6 +50,9 @@ class IstikharaViewController < UIViewController
     self.view = UIView.new
     self.view.backgroundColor = UIColor.colorWithPatternImage(UIImage.imageNamed("background"))
 
+    recognizer = UITapGestureRecognizer.alloc.initWithTarget(self, action:'toggleTranslation')
+    view.addGestureRecognizer(recognizer)
+
     headerImage = UIImage.imageNamed("header-transparent.png")
     headerImageView = UIImageView.alloc.initWithFrame([[42, 25], [240, 40]])
     headerImageView.image = headerImage
@@ -96,12 +99,12 @@ class IstikharaViewController < UIViewController
 
   def previousAyat
     @ayatNumber -= 1
-    @textView.text = displayText
+    @textView.text = ayatText
   end
 
   def nextAyat
     @ayatNumber += 1
-    @textView.text = displayText
+    @textView.text = ayatText
   end
 
   def button(title, action, frame)
@@ -145,13 +148,37 @@ class IstikharaViewController < UIViewController
 
   def randomAyah
     @ayatNumber = rand(6235)
-    displayText
+    ayatText
   end
 
-  def displayText
-    ayatText = Ayat.new(@contents[@ayatNumber]).to_s
-    translationText = @translation[@ayatNumber].gsub(".", "").chomp
-    "#{ayatText}\n#{translationText}"
+  def ayatText
+    Ayat.new(@contents[@ayatNumber]).to_s
+  end
+
+  def translationText
+    @translation[@ayatNumber]
+  end
+
+  def displayTranslation
+    @textView.text = translationText
+    @textView.textAlignment = UITextAlignmentLeft
+    @textView.font = UIFont.fontWithName("Helvetica", size:20)
+    @translationDisplayed = true
+  end
+
+  def displayAyat
+    @textView.text = ayatText
+    @textView.textAlignment = UITextAlignmentRight
+    @textView.font = UIFont.fontWithName(fontName, size:30)
+    @translationDisplayed = false
+  end
+
+  def toggleTranslation
+    if @translationDisplayed
+      displayAyat
+    else
+      displayTranslation
+    end
   end
 
 end
