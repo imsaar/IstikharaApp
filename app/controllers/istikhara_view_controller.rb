@@ -62,6 +62,14 @@ class IstikharaViewController < UIViewController
     recognizer = UITapGestureRecognizer.alloc.initWithTarget(self, action:'toggleTranslation')
     @textView.addGestureRecognizer(recognizer)
 
+    swipeRecognizer = UISwipeGestureRecognizer.alloc.initWithTarget(self, action:'nextAyat')
+    swipeRecognizer.direction = UISwipeGestureRecognizerDirectionRight
+    self.view.addGestureRecognizer(swipeRecognizer)
+
+    swipeRecognizer = UISwipeGestureRecognizer.alloc.initWithTarget(self, action:'previousAyat')
+    swipeRecognizer.direction = UISwipeGestureRecognizerDirectionLeft
+    self.view.addGestureRecognizer(swipeRecognizer)
+
     button_y = UIScreen.mainScreen.bounds.size.height - 70
     button_height = 40
     distance_between_buttons = 25
@@ -133,7 +141,7 @@ class IstikharaViewController < UIViewController
     textView = UITextView.alloc.initWithFrame(CGRectMake(x,y,width,height))
     textView.text = message
     textView.font = UIFont.fontWithName(fontName, size:30)
-    textView.textColor = UIColor.blackColor
+    textView.textColor = ayatColor
     textView.editable = false
     textView.scrollEnabled = true
     textView.textAlignment = UITextAlignmentRight
@@ -149,6 +157,7 @@ class IstikharaViewController < UIViewController
 
   def randomAyah
     @ayatNumber = rand(6235)
+    @istikharaAyatNumber = @ayatNumber
     ayatText
   end
 
@@ -164,6 +173,7 @@ class IstikharaViewController < UIViewController
     @textView.text = translationText
     @textView.textAlignment = UITextAlignmentLeft
     @textView.font = UIFont.fontWithName(englishFontName, size:20)
+    @textView.textColor = ayatColor
     @translationDisplayed = true
   end
 
@@ -175,7 +185,16 @@ class IstikharaViewController < UIViewController
     @textView.text = ayatText
     @textView.textAlignment = UITextAlignmentRight
     @textView.font = UIFont.fontWithName(fontName, size:30)
+    @textView.textColor = ayatColor
     @translationDisplayed = false
+  end
+
+  def ayatColor
+    color = UIColor.grayColor
+    if @ayatNumber == @istikharaAyatNumber
+      color = UIColor.blackColor
+    end
+    color
   end
 
   def toggleTranslation
