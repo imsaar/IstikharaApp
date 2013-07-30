@@ -51,7 +51,7 @@ class IstikharaViewController < UIViewController
     self.view.backgroundColor = UIColor.colorWithPatternImage(UIImage.imageNamed("background"))
 
     headerImage = UIImage.imageNamed("header-transparent.png")
-    headerImageView = UIImageView.alloc.initWithFrame([[42, 25], [240, 40]])
+    headerImageView = UIImageView.alloc.initWithFrame([[0, 25], [320, 40]])
     headerImageView.image = headerImage
     self.view.addSubview(headerImageView)
 
