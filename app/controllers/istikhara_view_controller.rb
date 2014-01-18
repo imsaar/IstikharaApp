@@ -140,7 +140,7 @@ class IstikharaViewController < UIViewController
 
     textView = UITextView.alloc.initWithFrame(CGRectMake(x,y,width,height))
     textView.text = message
-    textView.font = UIFont.fontWithName(fontName, size:30)
+    textView.font = UIFont.preferredFontForTextStyle(UIFontTextStyleHeadline).fontWithSize(24)
     textView.textColor = ayatColor
     textView.editable = false
     textView.scrollEnabled = true
@@ -184,7 +184,7 @@ class IstikharaViewController < UIViewController
   def displayAyat
     @textView.text = ayatText
     @textView.textAlignment = UITextAlignmentRight
-    @textView.font = UIFont.fontWithName(fontName, size:30)
+    @textView.font = UIFont.preferredFontForTextStyle(UIFontTextStyleHeadline).fontWithSize(24)
     @textView.textColor = ayatColor
     @translationDisplayed = false
   end
