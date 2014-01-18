@@ -6,6 +6,6 @@ class Ayat
   end
 
   def to_s
-    "#{ayat_text}(#{surah_number}:#{ayat_number})"
+    "#{ayat_text}\n(#{surah_number}:#{ayat_number})"
   end
 end

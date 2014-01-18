@@ -25,7 +25,7 @@ class IstikharaViewController < UIViewController
     label.backgroundColor = UIColor.clearColor
     label.numberOfLines = 2
     label.text = "اَسْتَخِيرُٱللّهَ بِرَحْمَتِهِ خِيَرَةً فِي عَافِيَةٍ"
-    label.font = UIFont.fontWithName(fontName, size:30)
+    label.font = UIFont.fontWithName(fontName, size:40)
     label.textColor = UIColor.blackColor
     label.textAlignment = UITextAlignmentCenter
     label
@@ -35,7 +35,7 @@ class IstikharaViewController < UIViewController
     label = UILabel.alloc.initWithFrame([[10, 400], [300, 40]])
     label.backgroundColor = UIColor.clearColor
     label.text = "Tap when ready for Istikhara"
-    label.font = UIFont.fontWithName(englishFontName, size:20)
+    label.font = UIFont.fontWithName(englishFontName, size:24)
     label.textColor = UIColor.blackColor
     label.textAlignment = UITextAlignmentCenter
     label
@@ -50,7 +50,7 @@ class IstikharaViewController < UIViewController
     self.view = UIView.new
     self.view.backgroundColor = UIColor.colorWithPatternImage(UIImage.imageNamed("background"))
 
-    headerImage = UIImage.imageNamed("header-transparent.png")
+    headerImage = UIImage.imageNamed("header-transparent")
     headerImageView = UIImageView.alloc.initWithFrame([[0, 25], [320, 40]])
     headerImageView.image = headerImage
     self.view.addSubview(headerImageView)
@@ -77,23 +77,23 @@ class IstikharaViewController < UIViewController
     button_x = 30
     button_width = 50
     frame = [[button_x, button_y], [button_width, button_height]]
-    @prevButton = button('<<', 'nextAyat', frame)
-    prevImage = UIImage.imageNamed("arrow-back.png")
-    @prevButton.setImage(prevImage, forState:UIControlStateNormal)
+    @prevButton = button('', 'nextAyat', frame)
+    prevImage = UIImage.imageNamed("arrow-back")
+    @prevButton.setBackgroundImage(prevImage, forState:UIControlStateNormal)
 
     button_x = button_x + button_width + distance_between_buttons
     button_width = 110
     frame = [[button_x, button_y], [button_width, button_height]]
-    @istikharaButton = button('New Istikhara', 'nextTapped', frame)
-    istikharaImage = UIImage.imageNamed("istikhara-button.png")
-    @istikharaButton.setImage(istikharaImage, forState:UIControlStateNormal)
+    @istikharaButton = button('', 'nextTapped', frame)
+    istikharaImage = UIImage.imageNamed("istikhara-button")
+    @istikharaButton.setBackgroundImage(istikharaImage, forState:UIControlStateNormal)
 
     button_x = button_x + button_width + distance_between_buttons
     button_width = 50
     frame = [[button_x, button_y], [button_width, button_height]]
-    @nextButton = button('>>', 'previousAyat', frame)
-    nextImage = UIImage.imageNamed("arrow-next.png")
-    @nextButton.setImage(nextImage, forState:UIControlStateNormal)
+    @nextButton = button('', 'previousAyat', frame)
+    nextImage = UIImage.imageNamed("arrow-next")
+    @nextButton.setBackgroundImage(nextImage, forState:UIControlStateNormal)
 
     self.view.addSubview @textView
     self.view.addSubview @istikharaButton
@@ -140,7 +140,7 @@ class IstikharaViewController < UIViewController
 
     textView = UITextView.alloc.initWithFrame(CGRectMake(x,y,width,height))
     textView.text = message
-    textView.font = UIFont.preferredFontForTextStyle(UIFontTextStyleHeadline).fontWithSize(24)
+    textView.font = UIFont.preferredFontForTextStyle(UIFontTextStyleHeadline).fontWithSize(28)
     textView.textColor = ayatColor
     textView.editable = false
     textView.scrollEnabled = true
@@ -172,7 +172,7 @@ class IstikharaViewController < UIViewController
   def displayTranslation
     @textView.text = translationText
     @textView.textAlignment = UITextAlignmentLeft
-    @textView.font = UIFont.fontWithName(englishFontName, size:20)
+    @textView.font = UIFont.fontWithName(englishFontName, size:24)
     @textView.textColor = ayatColor
     @translationDisplayed = true
   end
@@ -184,7 +184,7 @@ class IstikharaViewController < UIViewController
   def displayAyat
     @textView.text = ayatText
     @textView.textAlignment = UITextAlignmentRight
-    @textView.font = UIFont.preferredFontForTextStyle(UIFontTextStyleHeadline).fontWithSize(24)
+    @textView.font = UIFont.preferredFontForTextStyle(UIFontTextStyleHeadline).fontWithSize(28)
     @textView.textColor = ayatColor
     @translationDisplayed = false
   end
