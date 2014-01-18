@@ -9,10 +9,9 @@ Motion::Project::App.setup do |app|
   app.name = 'zIstikhara'
   app.icons << 'icon.png'
   app.prerendered_icon = true
-  app.identifier = 'com.saaridev.istikhara'
-  app.deployment_target = "5.0"
-  app.fonts = ["UthmanTN1_Ver07.otf", 
-    "LateefRegOT.ttf", "ScheherazadeRegOT.ttf"]
+  app.identifier = 'com.saarcology.istikhara'
+  app.deployment_target = "7.0"
+  app.fonts = ["UthmanTN1_Ver07.otf", "LateefRegOT.ttf", "ScheherazadeRegOT.ttf"]
   app.development do
     app.codesign_certificate = "iPhone Developer: Syed Rizvi (8PW637K7EM)"
     app.provisioning_profile = "/Volumes/Data Drive/Dropbox/Dev/Istikhara.mobileprovision"
