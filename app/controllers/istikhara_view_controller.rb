@@ -102,8 +102,8 @@ class IstikharaViewController < UIViewController
   end
 
   def nextTapped
-    randomAyah
-    displayAyat
+    self.loadView
+    self.viewDidLoad
   end
 
   def previousAyat
